@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+# 
+# Exercise 4.4
+# 
+# Do the same thing as Exercise 4.3, but use the string directives \U and \L for upper- 
+# and lowercase. For instance, print "\U$DNA" prints the data in $DNA in uppercase.
+#
+# Answer to Exercise 4.4
+
+# Part 1
+
+$DNA = 'ACCCCCGGGGTTTTTT';
+
+print "\L$DNA\n";
+
+# Part 2
+
+$DNA = 'acccccggggtttttt';
+
+print "\U$DNA\n";
+
+exit;

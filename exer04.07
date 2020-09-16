@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+# 
+#  Exercise 4.7
+# 
+# This is a more difficult exercise. Write a program to read a file, and then print its 
+# lines in reverse order, the last line first. You may want to look up the functions 
+# push, pop, shift, and unshift, and choose one or more of them to accomplish this 
+# exercise. You may want to look ahead to Chapter 5 so you can use a loop in this 
+# program, but this may not be necessary depending on the approach you take. Or, 
+# you may want to use reverse on an array of lines.
+#
+# Answer to Exercise 4.7
+
+# Open and read file1.txt
+
+$file = 'file1.txt';
+
+unless(open(FILEHANDLE, $file)) {
+	print "Cannot open file $file\n";
+	exit;
+}
+
+@file_data = <FILEHANDLE>;
+
+
+# First method:
+#
+# Here's the easiest way, using the "reverse" function:
+print "First method\n\n\n";
+
+print reverse @file_data;
+
+
+
+# Second method:
+#
+# Here's a while loop and a call to pop
+# to remove and print the last element from an array:
+print "\n\n\nSecond method\n\n\n";
+
+while(@file_data) {
+	print pop @file_data;
+}
+
+exit;

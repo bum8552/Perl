@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+# 
+# Exercise 4.1
+# 
+# Explore the sensitivity of programming languages to errors of syntax. Try remov-
+# ing the semicolon from the end of any statement of one of our working programs
+# and examining the error messages that result, if any. Try changing other syntacti-
+# cal items: add a parenthesis or a curly brace; misspell "print" or some other
+# reserved word; just type in, or delete, anything. Programmers get used to seeing
+# such errors; even after getting to know the language well, it is still common to have
+# some syntax errors as you gradually add code to a program. Notice how one error
+# can lead to many lines of error reporting. Is Perl accurately reporting the line where
+# the error is?
+#
+
+# Answer to Exercise 4.1
+
+# There's no answer I can give; you just have to experiment for yourself!

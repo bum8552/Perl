@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+# 
+#  Exercise 4.5
+# 
+# Sometimes information flows from RNA to DNA. Write a program to reverse tran-
+# scribe RNA to DNA.
+#
+# Answer to Exercise 4.5
+
+# The RNA
+$DNA = 'ACGGGAGGACGGGAAAAUUACUACGGCAUUAGC';
+
+# Print the RNA onto the screen
+print "Here is the starting RNA:\n\n";
+
+print "$RNA\n\n";
+
+# Reverse transcribe the RNA to DNA by substituting all U's with T's.
+$DNA = $RNA;
+
+$DNA =~ s/U/T/g;
+
+# Print the DNA onto the screen
+print "Here is the result of reverse transcribing the RNA to DNA:\n\n";
+
+print "$DNA\n";
+
+# Exit the program.
+exit;

@@ -1,0 +1,44 @@
+#!/usr/bin/perl
+# 
+#  Exercise 4.6
+# 
+# Read two files of data, and print the contents of the first followed by the contents of 
+# the second.
+#
+# Answer to Exercise 4.6
+
+# This answer depends on there being two files named file1.txt and file2.txt
+# in the folder where you run this program
+
+# Get data from first file
+
+$file1 = 'file1.txt';
+
+unless(open(FILE1, $file1)) {
+	print "Cannot open file $file1\n";
+	exit;
+}
+
+@first_file = <FILE1>;
+
+
+
+# Get data from second file
+
+$file2 = 'file2.txt';
+
+unless(open(FILE2, $file2)) {
+	print "Cannot open file $file2\n";
+	exit;
+}
+
+@second_file = <FILE2>;
+
+
+# Print the contents of the first followed by the contents of the second
+
+print @first_file;
+
+print @second_file;
+
+exit;

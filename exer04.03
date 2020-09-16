@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+# 
+# Exercise 4.3
+# 
+# Write a program that prints DNA (which could be in upper- or lowercase origi-
+# nally) in lowercase (acgt); write another that prints the DNA in uppercase (ACGT). 
+# Use the function tr///.
+#
+# Answer to Exercise 4.3
+
+# Part 1
+
+$DNA = 'ACCCCCGGGGTTTTTT';
+
+$DNA =~ tr/ACGT/acgt/;
+
+print $DNA, "\n";
+
+# Part 2
+
+$DNA = 'acccccggggtttttt';
+
+$DNA =~ tr/acgt/ACGT/;
+
+print $DNA, "\n";
+
+exit;
