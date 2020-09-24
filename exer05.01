@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+# 
+# Exercise 5.1
+# 
+# Use a loop to write a nonhalting program. The conditional must always evaluate to 
+# true, every time through the loop. Note that some systems will catch that you're in 
+# an infinite loop and will stop the program automatically. You will stop your pro-
+# gram differently, depending on which operating system you use. Ctrl-C works on 
+# Unix and Linux, a Windows MS-DOS command window, or a Mac OS X shell 
+# window.
+#
+# Answer to Exercise 5.1
+
+# 1 is always true
+
+while(1) {}
+
+# You'll never get to the exit statement:
+
+exit;

@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+# 
+# Exercise 5.3
+# 
+# Write a program that prints all the numbers from 1 to 100. Your program should 
+# have much fewer than 100 lines of code!
+#
+# Answer to Exercise 5.3
+
+# Here's a way using a "while" loop
+
+$i = 1;
+
+while($i < 101) {
+	print $i,"\n";
+	++$i;
+}
+
+# Here's a way using a "for" loop
+
+for($i=1 ; $i < 101 ; ++$i) {
+	print $i,"\n";
+}

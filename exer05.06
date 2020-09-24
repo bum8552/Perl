@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.6 
+# 
+# Write a program that checks if two strings given as arguments are reverse comple-
+# ments of each other. Use the Perl built-in functions split, pop, shift, and eq (eq actu-
+# ally an operator).
+#
+# Answer to Exercise 5.6
+
+unless(scalar(@ARGV) == 2) {
+	print "Give two strings as arguments to check for reverse complements\n";
+	exit;
+}
+
+
+@str1 = split(//, $ARGV[0]);
+@str2 = split(//, $ARGV[1]);
+
+# First check if they are the same size (if not, they're not reverse complements!)
+
+if ( scalar(@str1) != scalar(@str2) ) {
+	print "They are NOT reverse complements\n";
+	exit;
+}
+
+# "shift" the first element off of the first string,
+# and "pop" the last element off of the second string
+
+# If they are not complements, stop and say NO
+
+while(@str1) {
+
+	$b1 = shift @str1;
+	$b2 = pop @str2;
+
+	$b2 =~ tr/ACGT/TGCA/;
+
+	if( $b1 ne $b2 ) {
+		print "They are NOT reverse complements\n";
+		exit;
+	}
+}
+
+# At this point we've examined every pair of bases and they were
+# all complements, so...
+
+print "They ARE reverse complements\n";
+
+exit;

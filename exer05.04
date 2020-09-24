@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.4 
+# 
+# Write a program to calculate the reverse complement of a strand of DNA. Do not 
+# use the s/// or the tr functions. Use the substr function, and examine each base one at 
+# a time in the original while you build up the reverse complement. (Hint: you might 
+# find it easier to examine the original right to left, rather than left to right, although 
+# either is possible.)
+#
+# Answer to Exercise 5.4
+
+$DNA = 'ACGGGGGTTTCCATACGCGATCAGCATGGCGTAATAAATGCGGCGCGTATATGCGATG';
+
+$revcom = '';
+
+for( $position = length($DNA)-1 ; $position >= 0  ; --$position) {
+
+	$base = substr($DNA, $position, 1);
+
+	if($base eq 'A') {
+		$base = 'T';
+	}elsif($base eq 'T') {
+		$base = 'A';
+	}elsif($base eq 'C') {
+		$base = 'G';
+	}elsif($base eq 'G') {
+		$base = 'C';
+	}
+
+	$revcom .= $base;
+}
+
+print $DNA, "\n";
+print $revcom, "\n";
+
+exit;

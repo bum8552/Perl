@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.5 
+# 
+# Write a program to report on the percentage of hydrophobic amino acids in a pro-
+# tein sequence. (To find which amino acids are hydrophobic, consult any introduc-
+# tory text on proteins, molecular biology, or cell biology. You will find information 
+# sources in Appendix A.)
+#
+# Answer to Exercise 5.5
+
+# We can use the counting behavior of the tr/// operator on the hydrophobic
+# amino acids.
+
+$protein =  join "", qw(
+MNIDDKLEGLFLKCGGIDEMQSSRTMVVMGGVSGQSTVSGELQD
+SVLQDRSMPHQEILAADEVLQESEMRQQDMISHDELMVHEETVKNDEEQMETHERLPQ
+GLQYALNVPISVKQEITFTDVSEQLMRDKKQIR
+);
+
+print $protein,"\n";
+
+# These are the amino acids with nonpolar side chains
+# $hydrophobic counts the number of hydrophobic amino acids 
+
+$hydrophobic = ($protein =~ tr/GAVLIPFMWC//);
+
+
+$percentage = 100 * ($hydrophobic / length($protein));
+
+print "The percentage of hydrophobic residues is \%$percentage\n";

@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.10 
+# 
+# Write a program that writes a temporary file and then deletes it. The unlink func-
+# tion removes a file: just say, for example:
+# 
+# unlink "tmpfile";
+# 
+# but also check to see if  unlink is successful.
+#
+# Answer to Exercise 5.10
+
+# Here's a temporary file.  On Unix systems, these are often created
+# in the '/tmp' directory (or the /usr/tmp, or the /var/tmp directories).
+
+$tmpfile = '/tmp/exer5-10.tmp';
+
+# Use the > before the file name to create a new file
+unless(open(TMPFILE, ">$tmpfile")) {
+	print "Cannot open file $tmpfile\n";
+	exit;
+}
+
+# Write something to the file
+print TMPFILE "Testing Exercise 5.10\n";
+
+# Close the filehandle
+close(TMPFILE);
+
+unless(-e $tmpfile) {
+	print "File $tmpfile does not exists!\n";
+	exit;
+}
+
+unless(unlink $tmpfile) {
+	print "Cannot remove file $tmpfile\n";
+	exit;
+}
+
+if(-e $tmpfile) {
+	print "The unlink of file $tmpfile was unsuccessful\n";
+	exit;
+}
+
+exit;

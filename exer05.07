@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.7 
+# 
+# Write a program to report how GC-rich some sequence is. (In other words, just give 
+# the percentage of G and C in the DNA.)
+#
+# Answer to Exercise 5.8
+
+$sequence =  'ACGTAGCGCGTAATAGGCGCCGCGTCAACGCATGACGATCGT';
+
+$gc = ($sequence =~ tr/GC//);
+
+$percentage = 100 * ($gc / length($sequence) );
+
+print "The sequence has a percentage of G and C of \%$percentage\n";
+
+exit;

@@ -1,0 +1,53 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.9 
+# 
+# Write a program that switches two bases in a DNA string at specified positions. 
+# (Hint: you can use the Perl functions substr or splice.)
+#
+
+# Here's a way using substr
+
+
+# The DNA
+$DNA = 'AAAAAAAAAAAATTTTTTTTTTTTTTT';
+
+# The two positions (recall that 0 is the first position)
+$position1 = 4;
+$position2 = 15;
+
+
+# The bases at the two positions
+$base1 = substr($DNA, $position1, 1);
+$base2 = substr($DNA, $position2, 1);
+
+# Notice that here the substr is being using on the left hand side
+# of an assignment statement
+substr($DNA, $position1, 1) = $base2;
+substr($DNA, $position2, 1) = $base1;
+
+print "$DNA\n";
+
+
+
+# Now here's a way using splice, which operates on arrays.  So first we
+# have to "explode" the DNA into an array
+
+# The DNA
+$DNA = 'AAAAAAAAAAAATTTTTTTTTTTTTTT';
+
+# The two positions (recall that 0 is the first position)
+$position1 = 4;
+$position2 = 15;
+
+
+@DNAarray = split(//, $DNA);
+
+$base1 = $DNAarray[$position1];
+
+splice(@DNAarray, $position1, 1, $DNAarray[$position2]);
+splice(@DNAarray, $position2, 1, $base1);
+
+print @DNAarray, "\n";
+
+exit;

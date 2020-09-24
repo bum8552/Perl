@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+# 
+#  Exercise 5.8 
+# 
+# Modify Example 5-3 to not only find motifs by regular expressions but to print out 
+# the motif that was found. For example, if you search, using regular expressions, for 
+# the motif EE.*EE, your program should print EETVKNDEE. You can use the spe-
+# cial variable $&. After a successful pattern match, this special variable is set to hold 
+# the pattern that was matched.
+#
+# Answer to Exercise 5.8
+# Example 5-3   Searching for motifs
+
+print "Please type the filename of the protein sequence data: ";
+
+$proteinfilename = <STDIN>;
+
+# Remove the newline from the filename
+chomp $proteinfilename;
+
+# open the file, or exit
+unless ( open(PROTEINFILE, $proteinfilename) ) {
+
+    print "Cannot open file \"$proteinfilename\"\n\n";
+    exit;
+}
+
+# Read the protein sequence data 
+@protein = <PROTEINFILE>;
+
+close PROTEINFILE;
+
+# Put the protein sequence data into a single string
+$protein = join( '', @protein);
+
+# Remove whitespace
+$protein =~ s/\s//g;
+
+# In a loop, ask the user for a motif, search for the motif,
+# and report if it was found.
+# Exit if no motif is entered.
+do {
+    print "Enter a motif to search for: ";
+
+    $motif = <STDIN>;
+
+    # Remove the newline at the end of $motif
+
+    chomp $motif;
+
+    # Look for the motif
+
+    if ( $protein =~ /$motif/ ) {
+
+        print "I found it!\n\n";
+
+	##########################
+	# Here's the modification:
+	##########################
+	print "The motif is", $&, "\n";
+
+    } else {
+
+        print "I couldn\'t find it.\n\n";
+    }
+
+# exit on an empty user input
+} until ( $motif =~ /^\s*$/ );
+
+# exit the program
+exit;

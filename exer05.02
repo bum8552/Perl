@@ -1,0 +1,55 @@
+#!/usr/bin/perl
+# 
+# Exercise 5.2
+# 
+# Prompt the user to enter two (short) strings of DNA. Concatenate the two strings of 
+# DNA by appending the second to the first using the .= assignment operator. Print 
+# the two strings as concatenated, and then print the second string lined up over its 
+# copy at the end of the concatenated strings. For example, if the input strings are 
+# AAAA and TTTT, print: 
+# 
+# AAAATTTT
+#     TTTT
+#
+# Answer to Exercise 5.2
+
+# Prompt for the strings, and read from STDIN (the keyboard in this case)
+
+print "Enter a short string of DNA here: ";
+
+$dna1 = <STDIN>;
+
+print "Enter another short string of DNA here: ";
+
+$dna2 = <STDIN>;
+
+# Remove the newline from the end of $dna1 before concatenating
+
+chomp $dna1;
+
+# Save the length of the first string (you'll see why in a moment)
+
+$length = length $dna1;
+
+# Concatenate the two strings using the .= assignment operator
+
+$dna1 .= $dna2;
+
+# Print the concatenated strings
+
+print $dna1;
+
+# To print the second string lined up in the right place, we need to first print
+# the same number of spaces as the length of the first string
+
+# The x operator repeats the string on its left by the number on its right:
+# So   ' ' x $length    will print $length number of spaces
+# Note there's no newline here.
+
+print ' ' x $length;
+
+# Now print the second string
+
+print $dna2;
+
+exit;
