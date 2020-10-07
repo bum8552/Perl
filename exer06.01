@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+# 
+#  Exercise 6.1
+# 
+# Write a subroutine to concatenate two strings of DNA.
+#
+# Answer to Exercise 6.1
+
+use strict;
+use warnings;
+
+sub concatenate_two_strings {
+	my($str1, $str2) = @_;
+
+	return "$str1$str2";
+}
+
+# Test the subroutine
+
+print concatenate_two_strings('AAAA', 'TTTT'), "\n";
+
+exit;
