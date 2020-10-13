@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+# 
+#  Exercise 6.3 
+# 
+# Write a subroutine to prompt a user with any message, and collect the user's 
+# answer. The subroutine's argument should be the message, and the return value 
+# should be the (one-line) answer.
+#
+# Answer to Exercise 6.3
+
+use strict;
+use warnings;
+
+my $message = "Please type something here: ";
+
+my $answer = QandA( $message );
+
+print $answer;
+
+exit;
+
+sub QandA {
+	my($message) = @_;
+
+	print $message;
+
+	my $ans = <STDIN>;
+
+	return $ans;
+}
